@@ -1,0 +1,16 @@
+[build]
+builder = "NIXPACKS"
+
+[build.nixpacksConfig]
+nixpkgs = ["nodejs-20_x"]
+
+[[build.nixpacksConfig.phases.install]]
+cmds = ["npm ci"]
+
+[[build.nixpacksConfig.phases.build]]
+cmds = ["npm run build", "npx prisma generate"]
+
+[deploy]
+startCommand = "node .output/server/index.mjs"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10

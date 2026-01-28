@@ -1,0 +1,13 @@
+node_modules
+.nuxt
+.cache
+.output
+dist
+dev_log.txt
+*.log
+.env
+.env.local
+.env.*.local
+deploy-package
+deploy
+*.zip
